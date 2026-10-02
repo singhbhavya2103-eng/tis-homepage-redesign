@@ -1,0 +1,624 @@
+
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, sans-serif;
+  color: #1c2b25;
+  background: #f8f7f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  color: white;
+  background: #355b49;
+}
+
+
+:root {
+  --forest: #243f32;
+  --forest-deep: #192e24;
+  --ivory: #f8f7f2;
+  --gold: #c8a76b;
+  --muted: #6f756e;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  height: 3px;
+  background: var(--gold);
+  transform-origin: left;
+}
+
+.navbar {
+  min-height: 84px;
+  padding: 16px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--ivory);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--gold);
+  color: var(--forest);
+  font-family: Georgia, serif;
+  font-size: 27px;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+}
+
+.brand strong {
+  letter-spacing: 3px;
+  font-size: 15px;
+}
+
+.brand small {
+  margin-top: 4px;
+  font-size: 8px;
+  letter-spacing: 1.3px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  font-size: 13px;
+}
+
+.nav-links a,
+.footer a {
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.footer a:hover {
+  color: #987844;
+}
+
+.button {
+  min-height: 48px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-dark {
+  color: white;
+  background: var(--forest);
+}
+
+.button-light {
+  color: var(--forest-deep);
+  background: var(--ivory);
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.hero {
+  position: relative;
+  min-height: min(760px, 83svh);
+  min-height: max(600px, min(760px, 83svh));
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: white;
+  background: var(--forest-deep);
+}
+
+.hero-image,
+.campus-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-image {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(17, 35, 27, 0.86) 0%,
+      rgba(17, 35, 27, 0.55) 52%,
+      rgba(17, 35, 27, 0.13) 100%
+    ),
+    url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=2000&q=85");
+  animation: hero-enter 1.2s ease-out both;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(780px, 90%);
+  margin-left: 9%;
+  padding: 70px 0 100px;
+}
+
+.eyebrow {
+  margin: 0 0 26px;
+  color: #9b8050;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.1px;
+  line-height: 1.8;
+}
+
+.hero-eyebrow {
+  color: #e2d2ae;
+}
+
+.hero h1,
+.section h2,
+.campus-copy h2,
+.admissions-section h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 400;
+  line-height: 0.99;
+  letter-spacing: -3px;
+}
+
+.hero h1 em,
+.section h2 em,
+.admissions-section h2 em {
+  font-weight: 400;
+  color: var(--gold);
+}
+
+.hero-description {
+  max-width: 420px;
+  margin: 28px 0;
+  color: #eeeae1;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 25px;
+}
+
+.text-link {
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
+
+.hero-bottom {
+  position: absolute;
+  inset: auto 6% 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: #eeeae1;
+  font-size: 9px;
+  letter-spacing: 1.6px;
+}
+
+.hero-bottom a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+}
+
+.section {
+  padding: 120px 9%;
+}
+
+.about-section {
+  background: var(--ivory);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.8fr;
+  gap: 10%;
+  align-items: start;
+}
+
+.section h2 {
+  color: var(--forest);
+  font-size: clamp(43px, 5.5vw, 70px);
+  letter-spacing: -2.5px;
+}
+
+.section h2 em {
+  color: #8a7859;
+}
+
+.about-copy {
+  padding-top: 7px;
+}
+
+.about-copy p,
+.section-heading > p,
+.campus-copy > div > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.95;
+}
+
+.inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 17px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--gold);
+  color: var(--forest);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.learning-section {
+  background: #efeee7;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.section-heading > p {
+  max-width: 310px;
+}
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 58px;
+}
+
+.program-card {
+  min-height: 245px;
+  padding: 27px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--ivory);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(30, 50, 38, 0.08);
+}
+
+.program-number {
+  color: #9b8050;
+  font-family: Georgia, serif;
+  font-size: 20px;
+}
+
+.program-card h3 {
+  margin: 24px 0 10px;
+  color: var(--forest);
+  font-family: Georgia, serif;
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.program-card p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.program-card > a {
+  align-self: flex-end;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #d9d5c9;
+  border-radius: 50%;
+}
+
+.campus-section {
+  position: relative;
+  min-height: 590px;
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  background: var(--forest);
+}
+
+.campus-image {
+  position: relative;
+  min-height: 460px;
+  background-image:
+    linear-gradient(rgba(18, 40, 29, 0.1), rgba(18, 40, 29, 0.1)),
+    url("https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1300&q=85");
+}
+
+.campus-copy {
+  display: flex;
+  align-items: center;
+  padding: 75px 12%;
+  color: white;
+}
+
+.campus-copy h2 {
+  font-size: clamp(45px, 5vw, 66px);
+}
+
+.campus-copy > div > p:not(.eyebrow) {
+  margin-top: 25px;
+  color: #e0e5df;
+}
+
+.campus-copy .inline-link {
+  color: white;
+}
+
+.admissions-section {
+  padding: 120px 20px;
+  text-align: center;
+  background: var(--forest-deep);
+  color: white;
+}
+
+.admissions-section h2 {
+  font-size: clamp(45px, 6vw, 76px);
+}
+
+.admissions-section > div > p:not(.eyebrow) {
+  max-width: 450px;
+  margin: 24px auto 30px;
+  color: #e0e5df;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.footer {
+  padding: 35px 6%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  background: var(--ivory);
+  color: var(--forest);
+  font-size: 11px;
+}
+
+.footer p {
+  color: var(--muted);
+}
+
+.footer > span {
+  color: var(--muted);
+}
+
+@keyframes hero-enter {
+  from { transform: scale(1.035); }
+  to { transform: scale(1); }
+}
+
+@media (max-width: 850px) {
+  .navbar {
+    padding-inline: 5%;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  .nav-cta {
+    padding-inline: 13px;
+  }
+
+  .section {
+    padding: 85px 6%;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .program-grid {
+    grid-template-columns: 1fr;
+    margin-top: 35px;
+  }
+
+  .program-card {
+    min-height: 190px;
+  }
+
+  .campus-section {
+    grid-template-columns: 1fr;
+  }
+
+  .campus-image {
+    min-height: 380px;
+  }
+
+  .campus-copy {
+    padding: 65px 8%;
+  }
+}
+
+@media (max-width: 560px) {
+  .navbar {
+    min-height: 72px;
+    gap: 12px;
+  }
+
+  .brand-mark {
+    width: 37px;
+    height: 37px;
+  }
+
+  .brand strong {
+    font-size: 13px;
+  }
+
+  .brand small {
+    font-size: 7px;
+    letter-spacing: 0.8px;
+  }
+
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #d9d5c9;
+  }
+
+  .hero {
+    min-height: 690px;
+    min-height: 86svh;
+  }
+
+  .hero-image {
+    background-position: 60% center;
+  }
+
+  .hero-content {
+    width: 88%;
+    margin-left: 6%;
+    padding: 45px 0 85px;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 13vw, 68px);
+    letter-spacing: -2.5px;
+  }
+
+  .hero-description {
+    max-width: 340px;
+    font-size: 13px;
+  }
+
+  .hero-bottom {
+    inset-inline: 6%;
+    font-size: 7px;
+    letter-spacing: 0.8px;
+  }
+
+  .hero-bottom a {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .section {
+    padding: 75px 6%;
+  }
+
+  .section h2 {
+    font-size: 47px;
+    letter-spacing: -2px;
+  }
+
+  .program-card {
+    padding: 23px;
+  }
+
+  .campus-image {
+    min-height: 300px;
+  }
+
+  .campus-copy h2 {
+    font-size: 49px;
+  }
+
+  .admissions-section {
+    padding: 85px 6%;
+  }
+
+  .admissions-section h2 {
+    font-size: 47px;
+    letter-spacing: -2px;
+  }
+
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
