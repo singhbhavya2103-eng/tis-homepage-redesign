@@ -1,0 +1,16 @@
+/* The difference blend mode keeps the ring visible on both the cream
+   and the maroon sections, in light and dark themes. */
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  will-change: transform;
+}

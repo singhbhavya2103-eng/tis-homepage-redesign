@@ -1,0 +1,34 @@
+
+:root {
+  /* Brand colors */
+  --color-primary: #243f32;
+  --color-primary-dark: #203c30;
+  --color-accent: #c8a76b;
+  :root {
+  --tis-maroon-900: #740019;
+  --tis-maroon-700: #990025;
+  --tis-maroon-600: #bd0028;
+  --tis-teal-700: #056d73; /* hover state */
+  --tis-teal-600: #067a80; /* white text on this is about 5:1 (the old #078b91 was about 4.1:1) */
+  --tis-teal-300: #65d1d0;
+}
+
+  /* Neutral colors */
+  --color-background: #ffffff;
+  --color-surface: #f1f0e9;
+  --color-text: #26392f;
+  --color-muted: #6f756e;
+  --color-border: #e5e5df;
+
+  /* Typography */
+  --font-heading: Georgia, serif;
+  --font-body: Arial, sans-serif;
+
+  /* Layout */
+  --container-width: 1200px;
+  --section-padding: 100px 7%;
+
+  /* Motion */
+  --transition-fast: 200ms ease;
+  --transition-normal: 300ms ease;
+}

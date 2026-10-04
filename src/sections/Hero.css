@@ -1,0 +1,265 @@
+/* Three-column grid: photo column | content | photo column.
+   On phones it becomes one column, with a photo row above and below the text. */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(96px, 1fr) minmax(0, 2.2fr) minmax(96px, 1fr);
+  gap: 3%;
+  min-height: max(690px, calc(100svh - 134px));
+  padding: 56px 4% 64px;
+  color: #fff;
+  background: #a90024;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    ellipse at center,
+    rgb(172 0 37 / 0.88) 0%,
+    rgb(150 0 30 / 0.92) 55%,
+    rgb(119 0 24 / 0.96) 100%
+  );
+}
+
+/* Content */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  align-self: center;
+  width: 100%;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  margin: 0 0 22px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  line-height: 1.8;
+  color: #f2d39b;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(52px, 7.4vw, 124px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.hero h1 span {
+  font-weight: 400;
+}
+
+.hero h1 em {
+  color: #f2d39b;
+  font-weight: 400;
+}
+
+.hero-description {
+  max-width: 34ch;
+  margin: 28px auto 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgb(255 255 255 / 0.92);
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 32px;
+}
+
+.hero .button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 14px 24px;
+  background: #fff;
+  color: #85001e;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition:
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.hero .button-primary:hover {
+  background: #f2d39b;
+  transform: translateY(-2px);
+}
+
+.hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 200ms ease;
+}
+
+.hero-secondary:hover {
+  color: #f2d39b;
+}
+
+.hero a:focus-visible {
+  outline: 2px solid #f2d39b;
+  outline-offset: 3px;
+}
+
+/* Photo columns */
+.hero-photos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.hero-photo {
+  width: clamp(96px, 10vw, 150px);
+  aspect-ratio: 1;
+  animation: hero-float 7s ease-in-out infinite alternate;
+}
+
+.hero-photo-frame {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 15px 40px rgb(50 0 10 / 0.3);
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes hero-float {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-12px);
+  }
+}
+
+/* Decorative gold strokes */
+.hero-decoration {
+  position: absolute;
+  z-index: 0;
+  width: 110px;
+  height: 28px;
+  border-top: 3px solid #f2d39b;
+  border-radius: 50%;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.hero-decoration-one {
+  top: 28%;
+  left: 26%;
+  transform: rotate(-28deg);
+}
+
+.hero-decoration-two {
+  right: 25%;
+  bottom: 27%;
+  transform: rotate(24deg);
+}
+
+.hero-bottom-note {
+  position: absolute;
+  right: 4%;
+  bottom: 20px;
+  left: 4%;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: rgb(255 255 255 / 0.85);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+/* Phones and small tablets: stack the layout */
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    min-height: 0;
+    padding: 36px 6% 72px;
+  }
+
+  .hero-photos {
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .hero-photo {
+    width: clamp(60px, 19vw, 96px);
+  }
+
+  .hero-decoration {
+    display: none;
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 18px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 15vw, 76px);
+  }
+
+  .hero-description {
+    margin-top: 20px;
+    font-size: 15px;
+  }
+
+  .hero-actions {
+    margin-top: 24px;
+  }
+
+  .hero-bottom-note {
+    bottom: 14px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo {
+    animation: none;
+  }
+
+  .hero .button-primary,
+  .hero-secondary {
+    transition: none;
+  }
+
+  .hero .button-primary:hover {
+    transform: none;
+  }
+}

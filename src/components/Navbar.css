@@ -1,0 +1,268 @@
+/* Colors use var(--token, fallback) so the navbar still renders if
+   the tokens have not been added to variables.css yet. */
+
+.tis-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Teal admission strip */
+.tis-topbar {
+  background: var(--tis-teal-400, #66bbb2);
+  color: #111;
+}
+
+.tis-topbar-content {
+  min-height: 44px;
+  padding: 6px 4%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 2vw, 36px);
+}
+
+.tis-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #111;
+  text-decoration: none;
+  font-size: clamp(13px, 1.1vw, 20px);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.tis-enquire {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 8px 28px;
+  background: #111;
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 200ms ease;
+}
+
+.tis-enquire:hover {
+  background: #2f2f2f;
+}
+
+/* Maroon navigation */
+.tis-navigation {
+  position: relative;
+  min-height: 80px;
+  padding: 8px 3.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--tis-maroon-800, #96001f);
+}
+
+.tis-brand {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  margin-bottom: -26px; /* logo hangs slightly below the bar, like the live site */
+  text-decoration: none;
+}
+
+.tis-brand-logo {
+  display: block;
+  width: 104px;
+  height: 104px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.25);
+}
+
+.tis-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(14px, 1.2vw, 28px);
+}
+
+.tis-nav-links > a:not(.tis-apply) {
+  color: #fff;
+  text-decoration: none;
+  font-size: clamp(11px, 0.86vw, 17px);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  transition: color 200ms ease;
+}
+
+.tis-nav-links > a:not(.tis-apply):hover {
+  color: var(--tis-teal-300, #65d1d0);
+}
+
+/* Desktop shows the links inline, so the toggle and Apply button stay hidden. */
+.tis-menu-toggle,
+.tis-apply {
+  display: none;
+}
+
+.tis-menu-toggle {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: var(--tis-teal-600, #067a80);
+  color: #fff;
+  cursor: pointer;
+  transition:
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.tis-menu-toggle:hover {
+  background: var(--tis-teal-700, #056d73);
+  transform: scale(1.04);
+}
+
+.tis-header a:focus-visible,
+.tis-header button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+@keyframes tis-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Collapse into the hamburger menu before the links run out of room */
+@media (max-width: 1279px) {
+  .tis-brand {
+    margin-bottom: 0;
+  }
+
+  .tis-brand-logo {
+    width: 76px;
+    height: 76px;
+  }
+
+  .tis-menu-toggle {
+    display: flex;
+    width: 54px;
+    height: 54px;
+  }
+
+  .tis-nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: calc(100dvh - 140px);
+    padding: 12px 5% 20px;
+    overflow-y: auto;
+    background: var(--tis-maroon-800, #96001f);
+    box-shadow: 0 12px 20px rgb(0 0 0 / 0.18);
+  }
+
+  .tis-nav-links.is-open {
+    display: flex;
+    animation: tis-menu-in 220ms ease-out;
+  }
+
+  .tis-nav-links > a:not(.tis-apply) {
+    padding: 14px 0;
+    border-bottom: 1px solid rgb(255 255 255 / 0.2);
+    font-size: 13px;
+  }
+
+  .tis-apply {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 14px;
+    border-radius: 4px;
+    background: var(--tis-teal-600, #067a80);
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 900px) {
+  .tis-topbar-content {
+    min-height: 42px;
+    padding: 6px 4%;
+    justify-content: space-between;
+  }
+
+  .tis-phone {
+    font-size: 12px;
+  }
+
+  .tis-enquire {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .tis-navigation {
+    min-height: 82px;
+    padding: 8px 5%;
+  }
+
+  .tis-brand-logo {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* Small phones: keep the number, drop the long label so text stays readable */
+@media (max-width: 480px) {
+  .tis-phone {
+    gap: 6px;
+  }
+
+  .tis-phone-label {
+    display: none;
+  }
+
+  .tis-brand-logo {
+    width: 62px;
+    height: 62px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tis-menu-toggle,
+  .tis-enquire,
+  .tis-nav-links a {
+    transition: none;
+  }
+
+  .tis-nav-links.is-open {
+    animation: none;
+  }
+}

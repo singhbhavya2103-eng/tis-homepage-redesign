@@ -1,0 +1,24 @@
+/* Optional: the navbar and footer CSS already carry these as fallbacks.
+   Add them to the :root block of src/styles/variables.css so there is one place to change colors. */
+:root {
+  --tis-maroon-900: #740019;
+  --tis-maroon-800: #96001f;
+  --tis-maroon-700: #990025;
+  --tis-maroon-600: #bd0028;
+  --tis-teal-700: #056d73; /* hover */
+  --tis-teal-600: #067a80; /* white text on this is about 5:1 */
+  --tis-teal-400: #66bbb2; /* top strip, uses dark text */
+  --tis-teal-300: #65d1d0;
+}
+
+/* Add to src/styles/global.css. The header is sticky, so anchor jumps
+   need an offset or section titles end up hidden underneath it. */
+html {
+  scroll-padding-top: 140px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

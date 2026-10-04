@@ -1,0 +1,37 @@
+.theme-toggle {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-start;
+  width: 62px;
+  height: 36px;
+  padding: 3px;
+  border: 0;
+  border-radius: 999px;
+  background: #111;
+  cursor: pointer;
+}
+
+.theme-toggle[aria-checked="true"] {
+  justify-content: flex-end;
+}
+
+.theme-toggle-knob {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #f0c66a;
+  color: #111;
+}
+
+.theme-toggle-icon {
+  display: grid;
+  place-items: center;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}

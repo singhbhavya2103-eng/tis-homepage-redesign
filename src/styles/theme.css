@@ -1,0 +1,75 @@
+/* Light and dark theme tokens. The toggle sets data-theme on <html>.
+   Maroon brand sections (hero, about, rankings, campus, footer) keep
+   their colours in both themes; the cream sections and cards switch. */
+:root {
+  color-scheme: light;
+  --bg-page: #f1f0e9;
+  --bg-soft: #faf8f2;
+  --bg-card: #ffffff;
+  --text-strong: #243f32;
+  --text-body: #4a4f48;
+  --text-accent: #7a5d2a;
+  --text-accent-em: #8a6a2f;
+  --border-soft: #e5e1d2;
+  --border-chip: #cfcab9;
+  --accent-red: #b40028;
+  --link-accent: #067a80;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-page: #14181a;
+  --bg-soft: #101416;
+  --bg-card: #1d2326;
+  --text-strong: #eef1ec;
+  --text-body: #b9c0b8;
+  --text-accent: #e0b86a;
+  --text-accent-em: #f0c66a;
+  --border-soft: #2e373a;
+  --border-chip: #3b4649;
+  --accent-red: #ff6b86;
+  --link-accent: #5fd0d3;
+}
+
+/* Smooth the colour change when the toggle is pressed */
+.learning-section,
+.sports-section,
+.reviews-section,
+.sport-card,
+.enquiry-card,
+.enquiry-contact {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 3000;
+  padding: 10px 16px;
+  border-radius: 4px;
+  background: #fff;
+  color: #740019;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .learning-section,
+  .sports-section,
+  .reviews-section,
+  .sport-card,
+  .enquiry-card,
+  .enquiry-contact {
+    transition: none;
+  }
+}

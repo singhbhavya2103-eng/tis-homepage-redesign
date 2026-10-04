@@ -1,0 +1,96 @@
+/* About Tulas */
+.about-section {
+  position: relative;
+  z-index: 2;
+  background: #b40028;
+  color: #fff;
+  padding: 56px 7% 64px;
+  text-align: center;
+}
+
+.about-inner {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.about-section .eyebrow {
+  margin: 0 0 12px;
+  color: rgb(255 255 255 / 0.85);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+}
+
+.about-gold-line {
+  display: block;
+  color: #f0c66a;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.about-section h2 {
+  margin: 16px 0 22px;
+  color: #fff;
+  font-size: clamp(32px, 4.4vw, 52px);
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.about-section h2 em {
+  color: #f0c66a;
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+.about-copy {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.about-copy p {
+  margin: 0 auto 12px;
+  color: rgb(255 255 255 / 0.95);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.about-copy .about-established {
+  color: #f0c66a;
+  font-size: 15px;
+}
+
+.about-section .inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-top: 12px;
+  color: #f0c66a;
+  text-decoration: none;
+  font-weight: 600;
+  transition: gap 0.25s ease;
+}
+
+.about-section .inline-link:hover {
+  gap: 15px;
+}
+
+.about-section a:focus-visible {
+  outline: 2px solid #f0c66a;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 44px 6% 48px;
+  }
+
+  .about-copy p {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-section .inline-link {
+    transition: none;
+  }
+}
